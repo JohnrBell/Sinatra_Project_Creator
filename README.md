@@ -2,6 +2,7 @@
 
 Just put this in your bash profile. Call it by saying ```$sinatra_touch [project name]```
 
+```
 function sinatra_touch(){
   if (( "$#" != 1 )) 
   then
@@ -32,3 +33,4 @@ function sinatra_touch(){
     # bundle init
     subl .
 }
+```
