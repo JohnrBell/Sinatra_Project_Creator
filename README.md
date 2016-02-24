@@ -1,6 +1,6 @@
 # Sinatra_Project_Creator
 
-Just put this in your bash profile. Call it by saying ```$sinatra_touch [project name]```
+Just put this in your bash profile. Call it by saying ```sinatra_touch [project name]```
 
 ```
 function sinatra_touch(){
