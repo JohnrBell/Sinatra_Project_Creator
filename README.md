@@ -6,7 +6,7 @@ Just put this in your bash profile. Call it by saying ```$sinatra_touch [project
 function sinatra_touch(){
   if (( "$#" != 1 )) 
   then
-      echo "You must provide a project name. Usage: 'sinatra [name]'"
+      echo "You must provide a project name. Usage: 'sinatra_touch [name]'"
       return
   fi
     mkdir $1
