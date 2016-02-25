@@ -6,8 +6,8 @@ Just put this in your bash profile. Call it by saying ```sinatra_touch [project 
 function sinatra_touch(){
   if [ "$#" -ne 1 ]
   then
-      echo "You must provide a project name. Usage: 'sinatra_touch [name]'"
-      return
+    echo "You must provide a project name. Usage: 'sinatra_touch [name]'"
+    return
   fi
     mkdir $1
     cd $1
@@ -19,7 +19,17 @@ function sinatra_touch(){
       mkdir public/css
         touch public/css/style.css
       mkdir public/js 
-        curl http://code.jquery.com/jquery-2.2.1.min.js > public/js/jquery.js
+      
+        #gets jQuery, checks for successful download. 
+        curl -f http://code.jquery.com/jquery-2.2.1.min.js > public/js/jquery.js
+        if [ -s public/js/jquery.js ]
+        then
+          echo 'jQuery Download Successful.'
+        else
+          rm public/js/jquery.js
+          echo 'ERROR: jQuery download failed, file removed.'
+        fi
+
         echo -e '"use strict";\n(function(){\n\n})();' > public/js/script.js
     mkdir lib
     printf 'module Sinatra\n  class Server < Sinatra::Base\n    get "/" do\n      erb :index\n    end\n  end\nend' > server.rb
