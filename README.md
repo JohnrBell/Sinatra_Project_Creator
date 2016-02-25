@@ -24,6 +24,6 @@ function sinatra_touch(){
     mkdir lib
     printf 'module Sinatra\n  class Server < Sinatra::Base\n    get "/" do\n      erb :index\n    end\n  end\nend' > server.rb
     printf 'require "sinatra/base"\nrequire "sinatra/reloader"\nrequire_relative "server"\nrun Sinatra::Server' > config.ru
-    subl .
+    subl . #change this line to your editor of choice. 
 }
 ```
