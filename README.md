@@ -54,6 +54,7 @@ function sinatra_touch(){
         echo -e "require 'sinatra/activerecord'\n$(cat config.ru)" > config.ru
         echo -e "require 'sinatra/activerecord'\nrequire './config/environment'\ncurrent_dir = Dir.pwd\nDir[\"#{current_dir}/models/*.rb\"].each { |file| require file }\n\n$(cat server.rb)" > server.rb
         echo "for resources on Sinatra + Active Record, visit https://learn.co/lessons/sinatra-activerecord-setup and/or http://recipes.sinatrarb.com/p/databases/postgresql-activerecord"
+        echo "do rake db:create to get started, or rake -T for a list of rake tasks"
     elif [[ -n "$input_cmd" && "$input_cmd"=n ]]; then
       return
     else
